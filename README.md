@@ -1,3 +1,3 @@
 # Gulu's Tech Blog  
 
-View at [mrmammadov.github.io](https://mrmammadov.github.io)
+View at <a href="https://mrmammadov.github.io" target="_blank">mrmammadov.github.io</a>

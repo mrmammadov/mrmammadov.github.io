@@ -1,0 +1,14 @@
+---
+layout: default
+title: Projects
+---
+<div class="stack-10">
+  <h1 class="animate page-title">Projects</h1>
+  <ul class="animate card-list">
+    {% assign projects = site.projects | sort: "date" | reverse %}
+    {% for project in projects %}
+    {% assign href = project.url | relative_url %}
+    <li>{% include arrow-card.html href=href title=project.title description=project.description %}</li>
+    {% endfor %}
+  </ul>
+</div>

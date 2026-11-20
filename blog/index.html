@@ -1,0 +1,24 @@
+---
+layout: default
+title: Blog
+---
+<div class="stack-10">
+  <h1 class="animate page-title">Blog</h1>
+  <div class="stack-4">
+    {% if site.posts.size == 0 %}
+    <p class="animate muted">Work in progress.</p>
+    {% endif %}
+    {% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in years %}
+    <section class="animate stack-4">
+      <div class="font-semibold strong">{{ year.name }}</div>
+      <ul class="card-list">
+        {% for post in year.items %}
+        {% assign href = post.url | relative_url %}
+        <li>{% include arrow-card.html href=href title=post.title description=post.description %}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+  </div>
+</div>

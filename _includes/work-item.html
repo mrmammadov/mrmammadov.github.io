@@ -1,0 +1,4 @@
+<div class="text-sm muted">{{ include.item.date_start | date: "%b %Y" }} - {% if include.item.date_end %}{{ include.item.date_end | date: "%b %Y" }}{% else %}Current{% endif %}</div>
+<div class="font-semibold strong">{{ include.item.company }}</div>
+<div class="text-sm muted">{{ include.item.role }}</div>
+<article>{{ include.item.content | markdownify }}</article>

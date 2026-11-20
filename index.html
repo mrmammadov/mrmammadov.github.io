@@ -1,0 +1,74 @@
+---
+layout: default
+title: Home
+---
+<h1 class="animate greeting">Hi, I am {{ site.author }} <span class="wave">👋🏻</span></h1>
+
+<div class="stack-16">
+  <section>
+    <article class="stack-4">
+      <p class="animate">
+        Software Engineer based in Berlin, Germany.
+        I like to build software and products with real utility. <br>
+        My currents interests are applied AI and LLMs, and building secure products with them. <br>
+        Currently building search and recommendation systems for a Berlin-based startup in the HR-tech space.
+      </p>
+
+    </article>
+  </section>
+
+  <section class="animate stack-6">
+    {% assign blog_href = "/blog/" | relative_url %}
+    {% include section-heading.html title="Latest posts" href=blog_href link="See all posts" %}
+    {% if site.posts.size == 0 %}
+    <p class="muted">Work in progress.</p>
+    {% else %}
+    <ul class="card-list">
+      {% for post in site.posts limit: site.num_posts_on_homepage %}
+      {% assign href = post.url | relative_url %}
+      <li>{% include arrow-card.html href=href title=post.title description=post.description %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+
+  <!-- {% assign works = site.work | sort: "date_start" | reverse %}
+  {% if works.size > 0 %}
+  <section class="animate stack-6">
+    {% assign work_href = "/work/" | relative_url %}
+    {% include section-heading.html title="Work Experience" href=work_href link="See all work" %}
+    <ul class="work-list">
+      {% for item in works limit: site.num_works_on_homepage %}
+      <li>{% include work-item.html item=item %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %} -->
+
+  {% assign projects = site.projects | sort: "date" | reverse %}
+  {% if projects.size > 0 %}
+  <section class="animate stack-6">
+    {% assign projects_href = "/projects/" | relative_url %}
+    {% include section-heading.html title="Recent projects" href=projects_href link="See all projects" %}
+    <ul class="card-list">
+      {% for project in projects limit: site.num_projects_on_homepage %}
+      {% assign href = project.url | relative_url %}
+      <li>{% include arrow-card.html href=href title=project.title description=project.description %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section class="animate stack-4">
+    <h5 class="font-semibold strong">Let's Connect</h5>
+    <article>
+      <p>If you want to get in touch with me about something or just to say hi, reach out on social media or send me an email.</p>
+    </article>
+    <ul class="socials">
+      {% for social in site.socials %}
+      <li><a href="{{ social.href }}" target="_blank" rel="noopener" class="link underline" aria-label="{{ site.title }} on {{ social.name }}">{{ social.name }}</a> /</li>
+      {% endfor %}
+      <li class="truncate"><a href="mailto:{{ site.email }}" class="link underline" aria-label="Email {{ site.author }}">{{ site.email }}</a></li>
+    </ul>
+  </section>
+</div>

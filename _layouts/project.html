@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% assign back_href = "/projects/" | relative_url %}
+{% include back-link.html href=back_href label="Back to projects" %}
+<div class="entry-meta">
+  <div class="animate meta-row">
+    <time class="text-sm" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+  </div>
+  <h1 class="animate entry-title">{{ page.title }}</h1>
+  {% if page.demo_url or page.repo_url %}
+  <div class="animate project-links">
+    {% if page.demo_url %}<a href="{{ page.demo_url }}" target="_blank" rel="noopener" class="link underline">See Demo</a>{% endif %}
+    {% if page.demo_url and page.repo_url %}<span>/</span>{% endif %}
+    {% if page.repo_url %}<a href="{{ page.repo_url }}" target="_blank" rel="noopener" class="link underline">See Repository</a>{% endif %}
+  </div>
+  {% endif %}
+</div>
+<article class="animate">
+  {{ content }}
+</article>

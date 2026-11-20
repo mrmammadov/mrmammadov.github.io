@@ -1,0 +1,13 @@
+---
+layout: default
+title: Work
+---
+<div class="stack-10">
+  <h1 class="animate page-title">Work</h1>
+  <ul class="work-list">
+    {% assign works = site.work | sort: "date_start" | reverse %}
+    {% for item in works %}
+    <li class="animate">{% include work-item.html item=item %}</li>
+    {% endfor %}
+  </ul>
+</div>

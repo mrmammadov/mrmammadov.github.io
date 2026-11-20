@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign back_href = "/blog/" | relative_url %}
+{% include back-link.html href=back_href label="Back to blog" %}
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | divided_by: 200 | at_least: 1 -%}
+<div class="entry-meta">
+  <div class="animate meta-row">
+    <time class="text-sm" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+    &bull;
+    <span class="text-sm">{{ minutes }} min read</span>
+  </div>
+  <h1 class="animate entry-title">{{ page.title }}</h1>
+</div>
+<article class="animate">
+  {{ content }}
+</article>

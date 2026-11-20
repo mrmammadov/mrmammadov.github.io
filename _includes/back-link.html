@@ -1,0 +1,10 @@
+{%- comment -%} Usage: include back-link.html href=... label=... {%- endcomment -%}
+<div class="animate">
+  <a href="{{ include.href }}" class="btn btn-icon-left">
+    <svg viewBox="0 0 24 24" class="arrow arrow-left" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12" class="arrow-line"></line>
+      <polyline points="12 5 5 12 12 19" class="arrow-head"></polyline>
+    </svg>
+    <span class="text-sm">{{ include.label }}</span>
+  </a>
+</div>

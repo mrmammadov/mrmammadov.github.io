@@ -1,0 +1,58 @@
+# ── Site ────────────────────────────────────────────────
+title: "Gulu's Personal Blog"
+description: A minimal blog and portfolio.
+author: Gulu Mammadli
+lang: en
+
+# For a project site (username.github.io/repo) set baseurl to "/repo".
+# For a user site (username.github.io) leave it empty.
+url: "https://mrmammadov.github.io"
+baseurl: ""
+
+# ── Homepage ────────────────────────────────────────────
+num_posts_on_homepage: 3
+num_works_on_homepage: 2
+num_projects_on_homepage: 3
+
+socials:
+  - name: Twitter
+    href: https://x.com/gmammad_
+  - name: github
+    href: https://github.com/mrmammadov
+  - name: linkedin
+    href: https://www.linkedin.com/in/gulu-mammadli-96806997/
+
+# ── Build ───────────────────────────────────────────────
+permalink: /blog/:title/
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+collections:
+  work:
+    output: false
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: rss.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
